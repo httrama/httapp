@@ -1,1 +1,0 @@
-<apex:page controller="JqGridDataController" contenttype="text/plain">{!queryString}{!jsonText}</apex:page>
