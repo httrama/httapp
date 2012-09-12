@@ -57,6 +57,11 @@
         <name>Document</name>
     </types>
     <types>
+        <members>Nuehealth_PRM</members>
+        <members>Nuehealth_PRM/MarketingProductInquiryResponse</members>
+        <name>EmailTemplate</name>
+    </types>
+    <types>
         <members>*</members>
         <name>HomePageLayout</name>
     </types>
