@@ -1,0 +1,149 @@
+<apex:page >
+
+<head>
+<title>Pipeline</title>
+<apex:includeScript value="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js" />
+<apex:includeScript value="{!$Resource.sfscript}" />
+ <apex:stylesheet value="{!$Resource.sfstyles}"/>
+</head>
+
+<div class="wrapper">	
+	<div class="pipelinechartsfull">
+		<div class="pipelineHeading">Patients</div>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr class="chartheader">
+					<td valign="top"><a href="#">Patient</a></td>
+					<td valign="top"><a href="#">Treatment</a></td>
+					<td valign="top"><a href="#">Location</a></td>
+					<td valign="top"><a href="#">Date</a></td>
+					<td valign="top"><a href="#">Phase</a></td>
+				</tr>
+				<tr class="chartdetailsodd">
+					<td valign="top"><a href="#">John Lockhart</a></td>
+					<td valign="top"><a href="#">Hip Replacement</a></td>
+					<td valign="top"><a href="#">Singapore</a></td>
+					<td valign="top"><a href="#">02/08/2012</a></td>
+					<td valign="top"><a href="#">Inquiry</a></td>
+				</tr>	
+				<tr class="chartdetailseven">
+					<td valign="top"><a href="#">Sally Smith</a></td>
+					<td valign="top"><a href="#">Knee Surgery</a></td>
+					<td valign="top"><a href="#">Australia</a></td>
+					<td valign="top"><a href="#">18/07/2012</a></td>
+					<td valign="top"><a href="#">Travel</a></td>
+				</tr>								
+			</table>
+		</div>
+	</div>
+	<div style="clear:both"></div>
+	<div class="pipelinechartscol1">
+		<div class="pipelineHeading">Tasks</div>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr class="chartheader">
+					<td valign="top"><a href="#">Patient</a></td>
+					<td valign="top"><a href="#">Treatment</a></td>
+					<td valign="top"><a href="#">Task</a></td>
+				</tr>
+				<tr class="chartdetailsodd">
+					<td valign="top"><a href="#">John Lockhart</a></td>
+					<td valign="top"><a href="#">Hip Replacement</a></td>
+					<td valign="top"><a href="#">Task 1</a></td>
+				</tr>	
+				<tr class="chartdetailseven">
+					<td valign="top"><a href="#">Sally Smith</a></td>
+					<td valign="top"><a href="#">Knee Surgery</a></td>
+					<td valign="top"><a href="#">Task 2</a></td>
+				</tr>								
+			</table>
+	</div>	
+	<div class="pipelinechartscol2">
+		<div class="pipelineHeading">Incidents</div>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr class="chartheader">
+					<td valign="top"><a href="#">Patient</a></td>
+					<td valign="top"><a href="#">Treatment</a></td>
+					<td valign="top"><a href="#">Incidents</a></td>
+				</tr>
+				<tr class="chartdetailsodd">
+					<td valign="top"><a href="#">John Lockhart</a></td>
+					<td valign="top"><a href="#">Hip Replacement</a></td>
+					<td valign="top"><a href="#">Incident 1</a></td>
+				</tr>	
+				<tr class="chartdetailseven">
+					<td valign="top"><a href="#">Sally Smith</a></td>
+					<td valign="top"><a href="#">Knee Surgery</a></td>
+					<td valign="top"><a href="#">Incidents 2</a></td>
+				</tr>								
+			</table>
+	</div>		
+	<div style="clear:both"></div>
+	<div class="pipelinechartscol1">
+		<div class="pipelineHeading">Payment</div>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr class="chartheader">
+					<td valign="top"><a href="#">Patient</a></td>
+					<td valign="top"><a href="#">Treatment</a></td>
+					<td valign="top"><a href="#">Payments</a></td>
+				</tr>
+				<tr class="chartdetailsodd">
+					<td valign="top"><a href="#">John Lockhart</a></td>
+					<td valign="top"><a href="#">Hip Replacement</a></td>
+					<td valign="top"><a href="#">Payment 1</a></td>
+				</tr>	
+				<tr class="chartdetailseven">
+					<td valign="top"><a href="#">Sally Smith</a></td>
+					<td valign="top"><a href="#">Knee Surgery</a></td>
+					<td valign="top"><a href="#">Payment 2</a></td>
+				</tr>								
+			</table>
+	</div>	
+	<div class="pipelinechartscol2">
+		<div class="pipelineHeading">Care Team Invitations</div>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr class="chartheader">
+					<td valign="top"><a href="#">Patient</a></td>
+					<td valign="top"><a href="#">Treatment</a></td>
+					<td valign="top"><a href="#">Invitation</a></td>
+				</tr>
+				<tr class="chartdetailsodd">
+					<td valign="top"><a href="#">John Lockhart</a></td>
+					<td valign="top"><a href="#">Hip Replacement</a></td>
+					<td valign="top"><a href="#">Invitation 1</a></td>
+				</tr>	
+				<tr class="chartdetailseven">
+					<td valign="top"><a href="#">Sally Smith</a></td>
+					<td valign="top"><a href="#">Knee Surgery</a></td>
+					<td valign="top"><a href="#">Invitation 2</a></td>
+				</tr>								
+			</table>	
+	</div>	
+	<div style="clear:both"></div>	
+	<div class="pipelinechartsfull">
+		<div class="pipelineHeading">Questions &amp; Messaging</div>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr class="chartheader">
+					<td valign="top"><a href="#">Patient</a></td>
+					<td valign="top"><a href="#">Treatment</a></td>
+					<td valign="top"><a href="#">Location</a></td>
+					<td valign="top"><a href="#">Message</a></td>
+					<td valign="top"><a href="#">Invitation</a></td>
+				</tr>
+				<tr class="chartdetailsodd">
+					<td valign="top"><a href="#">John Lockhart</a></td>
+					<td valign="top"><a href="#">Hip Replacement</a></td>
+					<td valign="top"><a href="#">Singapore</a></td>
+					<td valign="top"><a href="#">Tom Smith</a></td>
+					<td valign="top"><a href="#">Sally Jones</a></td>
+				</tr>	
+				<tr class="chartdetailseven">
+					<td valign="top"><a href="#">Sally Smith</a></td>
+					<td valign="top"><a href="#">Knee Surgery</a></td>
+					<td valign="top"><a href="#">Australia</a></td>
+					<td valign="top"><a href="#">Lisa George</a></td>
+					<td valign="top"><a href="#">Paul Thompson</a></td>
+				</tr>								
+			</table>
+	</div>
+
+
+</apex:page>

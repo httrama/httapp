@@ -1,0 +1,1325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>What Treatment is the patient interested in.</description>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Additional_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Best_Time_to_Contact__c</fullName>
+        <externalId>false</externalId>
+        <label>Best Time to Contact</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Morning (8a-11a)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Noon (11a-1p)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mid-Afternoon (1p-4p)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Evening(4p-8p)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Case_Manager_s_Feel__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Manager&apos;s Feel</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Not Going to Happen</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Needs More Time</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Looking Better Than Expected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hot Oppty</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Close_Date__c</fullName>
+        <description>What date do you think this Interaction will close.</description>
+        <externalId>false</externalId>
+        <label>Close Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Decision_Timeframe__c</fullName>
+        <externalId>false</externalId>
+        <label>Decision Timeframe</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Immediate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Within Two Weeks</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Within the Month</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>60 Days Out</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Deposit_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Deposit Required</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Financial_Reconciliation__c</fullName>
+        <externalId>false</externalId>
+        <label>Financial Reconciliation</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Financing_Reguired__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Financing Reguired</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Hospital_Destination__c</fullName>
+        <externalId>false</externalId>
+        <label>Hospital Destination</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inquiry_Quality__c</fullName>
+        <externalId>false</externalId>
+        <label>Inquiry Quality</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Top 5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Inquiry_Source__c</fullName>
+        <externalId>false</externalId>
+        <label>Inquiry Source</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Internet Search</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Facebook</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Google +</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Website</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Call in</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Blog</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email Marketing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>On_Site_Recovery_Period__c</fullName>
+        <externalId>false</externalId>
+        <label>On-Site Recovery Period</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Patient_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Patient Email</label>
+        <required>false</required>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Patient__c</fullName>
+        <externalId>false</externalId>
+        <label>Patient</label>
+        <referenceTo>Patient__c</referenceTo>
+        <relationshipLabel>Treatments</relationshipLabel>
+        <relationshipName>Treatments</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Payment_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Payment Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Paying Cash</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Phase__c</fullName>
+        <externalId>false</externalId>
+        <label>Phase</label>
+        <picklist>
+            <picklistValues>
+                <fullName>(1) Inquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>(2) Interaction</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>(3) Travel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>(4) Post-Op</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Post_Op_Follow_Up_Program__c</fullName>
+        <externalId>false</externalId>
+        <label>Post-Op Follow Up Program</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Destination__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Destination</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Preferred_Form_of_Contact__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Form of Contact</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cell Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Travel_Date_From__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Travel Date From</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Travel_Date_To__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Travel Date To</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Provider__c</fullName>
+        <externalId>false</externalId>
+        <label>Primary Provider</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Procedure_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Procedure Category</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cardiology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Neurology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cosmetic/Plastic</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dentistry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dermatology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Diagnostic</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ENT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gastroenterology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>General Surgery</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IVF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kidney Dialysis</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Obstetrics/Gynecology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Oncology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Opthalmology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Organ Tranplant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Orthopedic</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Podiatry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spinal  Surgery</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Stem Cell</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Urology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wellness</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Procedure_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Procedure Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Procedure_Treatment_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Procedure Treatment Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Anti-Aging</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ataxia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Autism</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cardiomyopathy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cerebral Palsy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CHF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cirrhosis &amp; Hepatitis</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>COPD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Critical Limb Ischemia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mulitple Sclerosis</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Optic Nerve Hypoplasia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parkinson&apos;s Disease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spinal Cord Injury</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Procedure__c</fullName>
+        <externalId>false</externalId>
+        <label>Procedure</label>
+        <picklist>
+            <controllingField>Procedure_Category__c</controllingField>
+            <picklistValues>
+                <fullName>ACL Repair</fullName>
+                <controllingFieldValues>Orthopedic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ALS</fullName>
+                <controllingFieldValues>Stem Cell</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Angiogram</fullName>
+                <controllingFieldValues>Cardiology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Angioplasty</fullName>
+                <controllingFieldValues>Cardiology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Anti-Aging</fullName>
+                <controllingFieldValues>Stem Cell</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ataxia</fullName>
+                <controllingFieldValues>Stem Cell</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Autism</fullName>
+                <controllingFieldValues>Stem Cell</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bariatric - Other</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Breast Augmentation</fullName>
+                <controllingFieldValues>Cosmetic/Plastic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Breast LIft</fullName>
+                <controllingFieldValues>Cosmetic/Plastic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cardiac - Other</fullName>
+                <controllingFieldValues>Cardiology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cardiomyopathy</fullName>
+                <controllingFieldValues>Cardiology</controllingFieldValues>
+                <controllingFieldValues>Stem Cell</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cataract surgery</fullName>
+                <controllingFieldValues>Opthalmology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CCSVI Diagnostics</fullName>
+                <controllingFieldValues>Neurology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CCSVI for MS (venoplasty)</fullName>
+                <controllingFieldValues>Neurology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cerebral Palsy</fullName>
+                <controllingFieldValues>Stem Cell</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chemotherapy</fullName>
+                <controllingFieldValues>Oncology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CHF</fullName>
+                <controllingFieldValues>Stem Cell</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Child Birth</fullName>
+                <controllingFieldValues>Obstetrics/Gynecology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cirrhosis &amp; Hepatitis</fullName>
+                <controllingFieldValues>Stem Cell</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>COPD</fullName>
+                <controllingFieldValues>Stem Cell</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cosmetic Combo</fullName>
+                <controllingFieldValues>Cosmetic/Plastic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cosmetic - Other</fullName>
+                <controllingFieldValues>Cosmetic/Plastic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Critical Limb Ischemia</fullName>
+                <controllingFieldValues>Stem Cell</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CT Scan</fullName>
+                <controllingFieldValues>Diagnostic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dental Bridge</fullName>
+                <controllingFieldValues>Dentistry</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dental Consult</fullName>
+                <controllingFieldValues>Dentistry</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dental Crowns</fullName>
+                <controllingFieldValues>Dentistry</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dental Dentures</fullName>
+                <controllingFieldValues>Dentistry</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dental Implants</fullName>
+                <controllingFieldValues>Dentistry</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dental - Other</fullName>
+                <controllingFieldValues>Dentistry</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dental Smile Makeover</fullName>
+                <controllingFieldValues>Dentistry</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dental Veneers</fullName>
+                <controllingFieldValues>Dentistry</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Endo-FLIP Gastric Band</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Endo-FLIP Gastric Plication</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Endo-Flip Gastric Sleeve</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Endoscopy</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Executive Check-up</fullName>
+                <controllingFieldValues>Wellness</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Face Lift</fullName>
+                <controllingFieldValues>Cosmetic/Plastic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gastric Balloon</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gastric Band</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gastric Band Port Removal</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gastric Band Removal</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gastric Band Revision</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gastric Bypass</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gastric Bypass Revision</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gastric PaceMaker</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gastric Plication</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gastric Plication Revision</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gastric Sleeve</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>General</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Green Light Laser for Prostate</fullName>
+                <controllingFieldValues>Urology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Restoration</fullName>
+                <controllingFieldValues>Cosmetic/Plastic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Heart</fullName>
+                <controllingFieldValues>Organ Tranplant</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hernia Repair</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hip Replacement</fullName>
+                <controllingFieldValues>Orthopedic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hip Resurfacing</fullName>
+                <controllingFieldValues>Orthopedic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kidney</fullName>
+                <controllingFieldValues>Organ Tranplant</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Knee Arthroscopy</fullName>
+                <controllingFieldValues>Orthopedic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Knee Replacement</fullName>
+                <controllingFieldValues>Orthopedic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LASIK</fullName>
+                <controllingFieldValues>Opthalmology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lumbar Dynamic Stabilization</fullName>
+                <controllingFieldValues>Spinal  Surgery</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Liposculpture with Brazilian Butt Lift</fullName>
+                <controllingFieldValues>Cosmetic/Plastic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Liposuction</fullName>
+                <controllingFieldValues>Cosmetic/Plastic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Liver</fullName>
+                <controllingFieldValues>Organ Tranplant</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Meniscus Repair</fullName>
+                <controllingFieldValues>Orthopedic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Metabolic Surgery for DiabetesType 2</fullName>
+                <controllingFieldValues>Gastroenterology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Microdiscectomy</fullName>
+                <controllingFieldValues>Spinal  Surgery</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MRI</fullName>
+                <controllingFieldValues>Diagnostic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mulitple Sclerosis</fullName>
+                <controllingFieldValues>Stem Cell</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Optic Nerve Hypoplasia</fullName>
+                <controllingFieldValues>Stem Cell</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Orthopedic - Other</fullName>
+                <controllingFieldValues>Orthopedic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parkinson&apos;s Disease</fullName>
+                <controllingFieldValues>Stem Cell</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Presbylasik</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prostate Treatment</fullName>
+                <controllingFieldValues>Urology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Radiation</fullName>
+                <controllingFieldValues>Oncology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reconstructive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rhinoplasty</fullName>
+                <controllingFieldValues>Cosmetic/Plastic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shoulder Arthroscopy</fullName>
+                <controllingFieldValues>Orthopedic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spinal Cord Injury</fullName>
+                <controllingFieldValues>Stem Cell</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spinal Disk Replacement</fullName>
+                <controllingFieldValues>Spinal  Surgery</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spinal Fusion</fullName>
+                <controllingFieldValues>Spinal  Surgery</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spinal - Other</fullName>
+                <controllingFieldValues>Spinal  Surgery</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Stem Cell Other</fullName>
+                <controllingFieldValues>Stem Cell</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tubal Ligation</fullName>
+                <controllingFieldValues>Obstetrics/Gynecology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tubal Ligation Reversal</fullName>
+                <controllingFieldValues>Obstetrics/Gynecology</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tummy Tuck</fullName>
+                <controllingFieldValues>Cosmetic/Plastic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ultrasound</fullName>
+                <controllingFieldValues>Diagnostic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X-ray</fullName>
+                <controllingFieldValues>Diagnostic</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Response_SLA__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(TEXT(Stage__c) = &quot;New&quot;, 
+  IF(((NOW() - CreatedDate) * 24) &lt; 1, &quot;GREEN&quot;,
+    IF(((NOW() - CreatedDate) * 24) &lt; 2, &quot;YELLOW&quot;, &quot;RED&quot;)),
+  IF(TEXT(Stage__c) = &quot;Attempted Contact&quot;,
+    IF(((NOW() - CreatedDate) * 24) &lt; 24, &quot;GREEN&quot;,
+      IF(((NOW() - CreatedDate) * 24) &lt; 36, &quot;YELLOW&quot;, &quot;RED&quot;)), &quot;NOT CALCULATED&quot;))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Response SLA</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Stage__c</fullName>
+        <externalId>false</externalId>
+        <label>Stage</label>
+        <picklist>
+            <controllingField>Phase__c</controllingField>
+            <picklistValues>
+                <fullName>New</fullName>
+                <controllingFieldValues>(1) Inquiry</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Responding</fullName>
+                <controllingFieldValues>(1) Inquiry</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lost</fullName>
+                <controllingFieldValues>(1) Inquiry</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contact Made</fullName>
+                <controllingFieldValues>(1) Inquiry</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contact Established</fullName>
+                <controllingFieldValues>(2) Interaction</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interested but not Responding</fullName>
+                <controllingFieldValues>(2) Interaction</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interested but Hold for Later</fullName>
+                <controllingFieldValues>(2) Interaction</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical Information</fullName>
+                <controllingFieldValues>(2) Interaction</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Treatment Approval Requested</fullName>
+                <controllingFieldValues>(2) Interaction</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Treatment Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Treatment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quoting</fullName>
+                <controllingFieldValues>(2) Interaction</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Patient On Hold</fullName>
+                <controllingFieldValues>(2) Interaction</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consult</fullName>
+                <controllingFieldValues>(2) Interaction</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel Converted</fullName>
+                <controllingFieldValues>(2) Interaction</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Patient Lost</fullName>
+                <controllingFieldValues>(2) Interaction</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel Itinerary</fullName>
+                <controllingFieldValues>(3) Travel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>At Provider</fullName>
+                <controllingFieldValues>(3) Travel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Post-Treatment</fullName>
+                <controllingFieldValues>(3) Travel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ongoing Relationship</fullName>
+                <controllingFieldValues>(4) Post-Op</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Relationship Terminated</fullName>
+                <controllingFieldValues>(4) Post-Op</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sub_Stage__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub-Stage</label>
+        <picklist>
+            <controllingField>Stage__c</controllingField>
+            <picklistValues>
+                <fullName>Response 1</fullName>
+                <controllingFieldValues>Responding</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Response 2</fullName>
+                <controllingFieldValues>Responding</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Response 3</fullName>
+                <controllingFieldValues>Responding</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Response 4</fullName>
+                <controllingFieldValues>Responding</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Could Not Recontact</fullName>
+                <controllingFieldValues>Lost</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Patient Not Interested</fullName>
+                <controllingFieldValues>Lost</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bad Information</fullName>
+                <controllingFieldValues>Lost</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Treament Information Given</fullName>
+                <controllingFieldValues>Contact Established</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Patient Providing Medical Information</fullName>
+                <controllingFieldValues>Medical Information</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical Records Requested</fullName>
+                <controllingFieldValues>Medical Information</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Treatment Approval Requested</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Treatment Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Treatment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consult Requested</fullName>
+                <controllingFieldValues>Consult</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consult Booked</fullName>
+                <controllingFieldValues>Consult</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consult Further Booking</fullName>
+                <controllingFieldValues>Consult</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consult No Further Booking</fullName>
+                <controllingFieldValues>Consult</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Show or Cancelled</fullName>
+                <controllingFieldValues>Consult</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quote In Process</fullName>
+                <controllingFieldValues>Quoting</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quote Signed</fullName>
+                <controllingFieldValues>Quoting</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quote Revision</fullName>
+                <controllingFieldValues>Quoting</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quote Rejected</fullName>
+                <controllingFieldValues>Quoting</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trip Preparation</fullName>
+                <controllingFieldValues>Travel Itinerary</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Treatment Itinerary Provided</fullName>
+                <controllingFieldValues>Travel Itinerary</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reschedule Trip</fullName>
+                <controllingFieldValues>Travel Itinerary</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trip Cancelled</fullName>
+                <controllingFieldValues>Travel Itinerary</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Treatment In Progress</fullName>
+                <controllingFieldValues>At Provider</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Treatment Add</fullName>
+                <controllingFieldValues>At Provider</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Patient Disqualified</fullName>
+                <controllingFieldValues>At Provider</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Check Payment Status</fullName>
+                <controllingFieldValues>At Provider</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Start Follow up</fullName>
+                <controllingFieldValues>Post-Treatment</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Financial Reconciliation</fullName>
+                <controllingFieldValues>Post-Treatment</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maintain communication</fullName>
+                <controllingFieldValues>Ongoing Relationship</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Treatment_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Treatment Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <label>Treatment</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>TR{00000000}</displayFormat>
+        <label>Treatment</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Treatments</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

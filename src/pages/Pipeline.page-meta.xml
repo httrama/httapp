@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>25.0</apiVersion>
+    <description>Page where Case Managers can manage their day. Will show current Inquires, Interactions, Travel, and Post Ops.</description>
+    <label>Pipeline</label>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>4</minorNumber>
+        <namespace>ERD</namespace>
+    </packageVersions>
+</ApexPage>

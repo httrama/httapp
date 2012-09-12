@@ -1,0 +1,35 @@
+<apex:page standardStyleSheets="true"
+           standardController="Procedure_Line_Item__c"
+           recordSetVar="procedureLines"
+           extensions="ProcedureLineExtension">
+
+  <apex:form id="theform">
+    <apex:messages />
+    <apex:pageblock >
+    <apex:actionFunction action="{!populateLine}" name="populateLineItem"/>
+    
+    <apex:outputtext value="Select a Procedure"/><apex:outputText >{!line.Treatment__c}</apex:outputText>
+    
+    <apex:pageBlock >
+      <apex:pageBlockSection >
+        <apex:inputField value="{!line.Procedure__c}" onchange="populateLineItem();"/>
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  
+    <apex:outputPanel rendered="{!showLine}" id="lineItem">
+      <apex:pageBlock >
+      <apex:outputText >{!line.Treatment__c}</apex:outputText>
+        <apex:pageBlockButtons location="bottom">
+          <apex:commandButton action="{!saveLine}" value="Save Line" />
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection columns="1">
+          <apex:inputField value="{!line.List_Price__c}"/>
+          <apex:inputField value="{!line.Sale_Price__c}"/>
+          <apex:inputField value="{!line.Discount__c}"/>
+          <apex:inputField value="{!line.Quantity__c}"/>
+        </apex:pageBlockSection>
+      </apex:pageBlock>
+    </apex:outputPanel>
+    </apex:pageblock>
+  </apex:form>
+</apex:page>

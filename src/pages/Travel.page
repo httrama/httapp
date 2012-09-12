@@ -1,0 +1,228 @@
+<apex:page >
+<html>
+<head>
+<title>Travel</title>
+<apex:includeScript value="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js" />
+<apex:includeScript value="{!$Resource.sfscript}" />
+ <apex:stylesheet value="{!$Resource.sfstyles}"/>
+</head>
+<body>
+<div class="wrapper">
+	<div class="col1">
+		<div class="vfButtonBar">
+			<div>
+				<span class="vfButtonBarheader">Patient Details</span>
+			</div>
+		</div>
+		<div class="sidebardetails">
+			<div class="label">Name:</div>
+			<div class="item"><a href="#">Tom Chatter</a></div>
+			<div class="label">Gender:</div>
+			<div class="item"><a href="#">Male</a></div> 
+			<div class="label">DOB:</div>
+			<div class="item"><a href="#">02/04/1969</a></div>
+			<div class="label">Email:</div>
+			<div class="item"><a href="#">tomchatter@gmail.com</a></div>
+			<div class="label">Phone:</div>
+			<div class="item"><a href="#">408-555-1212</a></div> 
+			<div class="label">Overview:</div>
+			<div class="item"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porta enim a leo euismod aliquam. Nunc eget nunc et lectus porta volutpat non vitae tellus. Donec eu magna at felis vestibulum sollicitudin sit amet ut tellus.</a></div>
+		</div><br /><br />
+	<div class="vfButtonBar">
+			<div>
+				<span class="vfButtonBarheader">Medical Timeline</span>
+			</div>
+		</div>
+		<div class="sidebardetails">
+			<div class="label">04/15/2012</div>
+			<div class="item"><a href="#">Inquiry</a></div>
+			<div class="label">06/25/2012</div>
+			<div class="item"><a href="#">Interaction</a></div> 
+			<div class="label">07/13/2012</div>
+			<div class="item"><a href="#">Travel</a></div>
+			<div class="label">08/10/2012</div>
+			<div class="item"><a href="#">Post-Op</a></div>
+		</div>	
+	</div>
+	
+	<div class="col3">
+		<div class="vfButtonBarDark">
+			<div>
+				<span class="vfButtonBarDarkheader">Patient Stages</span>
+			</div>
+		</div>
+		<div class="sidebardetails">
+				<div class="label">Phase:</div>
+				<div class="item"><a href="#">Two</a></div>
+				<div class="label">Stage:</div>
+				<div class="item"><a href="#">Treatment</a></div> 
+				<div class="label">Substage:</div>
+				<div class="item"><a href="#">Interaction</a></div>
+		</div><br /><br />
+		
+		
+		<div class="vfButtonBarDark">
+			<div>
+				<span class="vfButtonBarDarkheader">Tasks</span> <select name="dropdown" size="1" id="sidebardropdown" class="sidebardropdown"><option value="allopen">All Open</option><option value="allclosed">All Closed</option><option value="myopen" selected="selected">My Open</option><option value="myclosed">My Closed</option></select>
+			</div>
+		</div>
+		<div class="sidebardetails">
+			<div class="item"><a href="#">Take Payment</a> (not started)</div>
+			<div class="optionindent">		
+				<div class="labelleft">Owner:</div>
+				<div class="itemsmall"><a href="#">Sally Smith</a></div> 
+				<div class="labelleft">Due:</div>
+				<div class="itemsmall"><a href="#">08/22/2012</a></div>
+			</div>
+			<div style="clear:both"></div>
+		</div><br /><br />
+		
+		<div class="vfButtonBarDark">
+			<div>
+				<span class="vfButtonBarDarkheader">Messaging</span>
+			</div>
+		</div>	
+		<div class="sidebardetails">
+			<div class="label">John Smith:</div>
+			<div class="item"><a href="#">This will be the summary of the message</a></div>
+			<div class="label">Sam Jones:</div>
+			<div class="item"><a href="#">This will be the summary of the message</a></div>
+			<div class="label">Sue Williams:</div>
+			<div class="item"><a href="#">This will be the summary of the message</a></div>		
+		</div><br /><br />	
+		
+		<div class="vfButtonBarDark">
+			<div>
+				<span class="vfButtonBarDarkheader">Care Team Members</span>
+			</div>
+		</div>	
+		<div class="sidebardetails">
+			<div class="ctmwrap">
+				<div class="ctmimage"><apex:image id="avatar1" value="{!$Resource.avatar}" width="45" height="45"/></div>
+				<div class="label">John Smith:</div>
+				<div class="item"><a href="#">Assign Task</a></div>
+			</div>
+			
+			<div class="ctmwrap">
+				<div class="ctmimage"><apex:image id="avatar2" value="{!$Resource.avatar}" width="45" height="45"/></div>
+				<div class="label">Sam Jones:</div>
+				<div class="item"><a href="#">Assign Task</a></div>
+			</div>
+			
+			<div class="ctmwrap">
+				<div class="ctmimage"><apex:image id="avatar3" value="{!$Resource.avatar}" width="45" height="45"/></div>
+				<div class="label">Sue Williams:</div>
+				<div class="item"><a href="#">Assign Task</a></div>
+			</div>	
+		</div><br /><br />		
+		
+	</div>
+	<div class="col2">
+		<div class="col2Heading">Tom's Team</div>
+		<div class="completionSteps">
+			<div class="steps1wrap">
+				Completed 1 of 1 treatment Events
+				<div class="steps1box"></div>
+			</div>
+			<div class="steps2wrap">
+				Completed 0 of 4 Phases	
+				<div class="steps2box"></div>
+			</div>	
+		</div><br /><br />
+		<div class="col2Heading">Treatment</div>
+		<div class="treatmentform">
+		<form>
+		<table>
+			<tr>
+				<td valign="top" class="formlabel"><label for="firstname">Treatment:</label></td>
+				<td valign="top" class="formfield">(Treatment Input Here)</td>
+				<td valign="top" class="formlabel"><label for="lasttname">Proceedure:</label></td>
+				<td valign="top" class="formfield">(Procedure Input Here)</td>
+			</tr>
+			<tr>
+				<td rowspan="2" valign="top" class="formlabel"><label for="address">Description:</label></td>
+				<td rowspan="2" valign="top" class="formfield">(Description Input Here)</td>
+				<td valign="top" class="formlabel"><label for="email">Category:</label></td>
+				<td valign="top" class="formfield">(Category Input Here)</td>
+			</tr>
+			<tr>
+				<td valign="top" class="formlabel"><label for="phone">Location:</label></td>
+				<td valign="top" class="formfield">(Location Input Here)</td>
+			</tr>
+			<tr>
+				<td valign="top" class="formlabel"><label for="city">City</label></td>
+				<td valign="top" class="formfield">(City Input Here)</td>
+				<td valign="top" class="formlabel"><label for="country">Country</label></td>
+				<td valign="top" class="formfield">(Country Input Here)</td>
+			</tr>							
+		</table>
+		</form>
+		</div>
+			<div class="mainNav">
+				<div class="navitemfirst">
+				<a id="nav1" name="nav1" href="{!$Page.Inquiry}" onmousemove="document.getElementById('arrow1').style.color = '#EA6C1A'" onmouseout="document.getElementById('arrow1').style.color = '#CCCCCC'">
+<h3>Inquiry </h3></a><div class="lucida" id="arrow1">&#187;</div><br /><br /></div>
+				<div class="navitem">
+				<a id="nav2" name="nav2" href="{!$Page.Interaction}" onmousemove="document.getElementById('arrow2').style.color = '#EA6C1A'" onmouseout="document.getElementById('arrow2').style.color = '#CCCCCC'"><h3>Interaction </h3></a><div class="lucida" id="arrow2">&#187;</div><br /><br /></div>
+				<div class="navitem">
+				<a id="nav3" name="nav3" class="navselected" href="{!$Page.Travel}" onmousemove="document.getElementById('arrow3').style.color = '#EA6C1A'" onmouseout="document.getElementById('arrow3').style.color = '#CCCCCC'"><h3>Travel </h3></a><div class="lucida" id="arrow3">&#187;</div><br /><br /></div>
+				<div class="navitem">
+				<a id="nav4" name="nav4" href="{!$Page.Postop}" onmousemove="document.getElementById('arrow4').style.color = '#EA6C1A'" onmouseout="document.getElementById('arrow4').style.color = '#CCCCCC'"><h3>Post-Op </h3></a><div class="lucida" id="arrow4">&#187;</div><br /><br /></div>
+			</div>
+
+			<div class="navform">
+					<form>
+					<a href="javascript:void(0);" id="getmore">Click to view Inquiry Details</a>
+					<div id="seemore" style="display:none; margin-top:5px">
+						<table>
+							<tr>
+								<td valign="top" class="formlabel"><label for="firstname">Treatment:</label></td>
+								<td valign="top" class="formfield">(Treatment Input Here)</td>
+								<td valign="top" class="formlabel"><label for="lasttname">Procedure:</label></td>
+								<td valign="top" class="formfield">(Procedure Input Here)</td>
+							
+							</tr>
+							<tr>
+								<td rowspan="2" valign="top" class="formlabel"><label for="address">Description:</label></td>
+								<td rowspan="2" valign="top" class="formfield">(Description Input Here)</td>
+								<td valign="top" class="formlabel"><label for="email">Category:</label></td>
+								<td valign="top" class="formfield">(Category Input Here)</td>
+							</tr>
+							<tr>
+								<td valign="top" class="formlabel"><label for="phone">Location:</label></td>
+								<td valign="top" class="formfield">(Location Input Here)</td>
+							</tr>
+							<tr>
+								<td valign="top" class="formlabel"><label for="city">City</label></td>
+								<td valign="top" class="formfield">(City Input Here)</td>
+								<td valign="top" class="formlabel"><label for="country">Country</label></td>
+								<td valign="top" class="formfield">(Country Input Here)</td>
+							</tr>						
+						</table>
+					</div>
+				</form>
+			</div>
+			
+			<div class="tabs">
+				<a href="javascript:void(0);" id="tab1" class="tab" style="color:#EA6C1A">Scheduling</a>
+				<a href="javascript:void(0);" id="tab2" class="tab">Travel Itinerary</a>
+			</div>
+			<div id="tab1box" class="tabbox" style="display:block">
+				<div class="boxcolfull">Sed ullamcorper felis id nulla varius at placerat nulla dignissim. Etiam in ligula vel lacus porttitor aliquet id sed neque. Duis volutpat, velit vel viverra euismod, turpis metus faucibus massa, et vehicula tellus enim quis purus. Donec imperdiet dignissim felis, vel porta felis vehicula vel. Curabitur eros nunc, rutrum eu posuere at, eleifend quis lacus. Suspendisse quis nisl ligula, et vehicula leo. Duis sodales enim eget mi vestibulum tempus.<br /><br />
+
+Aenean est urna, pellentesque adipiscing tincidunt sit amet, viverra quis augue. Morbi tincidunt eleifend mollis. Proin tempor justo at felis lobortis accumsan. Duis ac nibh eu massa sagittis tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc justo urna, dictum sed tincidunt at, pellentesque quis dui. Donec non leo sed lacus suscipit faucibus in vel dui.</div>
+			</div>	
+			<div id="tab2box" class="tabbox">
+				<div class="boxcolfull">Sed ullamcorper felis id nulla varius at placerat nulla dignissim. Etiam in ligula vel lacus porttitor aliquet id sed neque. Duis volutpat, velit vel viverra euismod, turpis metus faucibus massa, et vehicula tellus enim quis purus. Donec imperdiet dignissim felis, vel porta felis vehicula vel. Curabitur eros nunc, rutrum eu posuere at, eleifend quis lacus. Suspendisse quis nisl ligula, et vehicula leo. Duis sodales enim eget mi vestibulum tempus.<br /><br />
+
+Aenean est urna, pellentesque adipiscing tincidunt sit amet, viverra quis augue. Morbi tincidunt eleifend mollis. Proin tempor justo at felis lobortis accumsan. Duis ac nibh eu massa sagittis tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc justo urna, dictum sed tincidunt at, pellentesque quis dui. Donec non leo sed lacus suscipit faucibus in vel dui.</div>
+			</div>	
+			</div>
+	</div>
+
+
+
+</body>
+</html>
+
+</apex:page>

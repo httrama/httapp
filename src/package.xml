@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>*</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>User.Receive_Portal_Messages__c</members>
+        <members>User.Receive_Staff_Messages__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>CustomLabels</members>
+        <name>CustomLabels</name>
+    </types>
+    <types>
+        <members>Incident__c</members>
+        <members>Knowledge_Base__c</members>
+        <members>Medical_Profile__c</members>
+        <members>Message__c</members>
+        <members>My_Message_Settings__c</members>
+        <members>Patient__c</members>
+        <members>Payment__c</members>
+        <members>Procedure_Catalog_Price__c</members>
+        <members>Procedure_Catalog__c</members>
+        <members>Procedure_Line_Item__c</members>
+        <members>Travel__c</members>
+        <members>Treatment_Quote__c</members>
+        <members>Treatment__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Incident__c</members>
+        <members>Knowledge_Base__c</members>
+        <members>My_Messages</members>
+        <members>Patients</members>
+        <members>Pipeline</members>
+        <members>Procedure_Catalog__c</members>
+        <members>Treatment__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>PRM_Documents</members>
+        <members>PRM_Documents/Header_Logo.jpeg</members>
+        <name>Document</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>HomePageLayout</name>
+    </types>
+    <types>
+        <members>Incident__c-Incident Layout</members>
+        <members>Knowledge_Base__c-Knowledge Base Layout</members>
+        <members>Medical_Profile__c-Medical Profile Layout</members>
+        <members>Message__c-Message Layout</members>
+        <members>Patient__c-Patient Layout</members>
+        <members>Payment__c-Payment Layout</members>
+        <members>Procedure_Catalog_Price__c-Procedure Catalog Price Layout</members>
+        <members>Procedure_Catalog__c-Procedure Catalog Layout</members>
+        <members>Procedure_Line_Item__c-Procedure Line Item Layout</members>
+        <members>QuoteLineItem-HTT Quote Line Item Layout</members>
+        <members>Travel_Itinerary__c-Travel Itinerary Layout</members>
+        <members>Treatment_Quote__c-Interaction Quote Layout</members>
+        <members>Treatment__c-Treatment Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>EHRApplicationStyle</members>
+        <members>avatar</members>
+        <members>bkgd</members>
+        <members>jquery</members>
+        <members>jquery_custom_css</members>
+        <members>jsonSuggest</members>
+        <members>jsonSuggestJS</members>
+        <members>paperclip</members>
+        <members>sfscript</members>
+        <members>sfstyles</members>
+        <name>StaticResource</name>
+    </types>
+    <types>
+        <members>Treatment__c</members>
+        <name>Workflow</name>
+    </types>
+    <version>20.0</version>
+</Package>

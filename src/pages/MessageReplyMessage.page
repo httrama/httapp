@@ -1,0 +1,123 @@
+<apex:page controller="MessageReplyMessageController"
+           tabStyle="My_Messages__tab"
+           action="{!startProcess}">
+    
+        <apex:include pageName="jquery_132" />
+    
+<!--    some special navigation required-->
+    <apex:includeScript value="{!URLFOR($Resource.jquery, 'js/local/jquery_tabs.js')}" />
+   <apex:stylesheet value="{!URLFOR($Resource.EHRApplicationStyle)}" />
+    
+    <style>
+        .fields{
+          width:95%;
+        }
+        .subjectContainer{
+          padding:3px 0px 0px 2px;
+        }
+        .newMsgSubject{
+          padding:5px;
+        }
+        .bodyContainer{
+          padding:3px 0px 2px 2px;
+        }
+        .jBtn{
+          padding:3px;
+          margin:3px;
+        }
+        /*style for the auto complete drop down*/
+        div.jsonSuggestResults div.resultItem{
+          height:25px;
+        }
+        img.currentPatient { 
+      float:left; margin-right:10px;  
+      background-image: url(/img/icon/people16.png);
+      background-position: 0 0;
+      height: 16px;
+      width: 16px;
+    }
+  
+    img.currentProvider {
+      float:left; margin-right:10px;  
+      background-image: url(/img/icon/custom51_100/shield16.png);
+      background-position: 0 0;
+      height: 16px;
+      width: 16px;
+    }
+    .tblLabel{
+      align:right;
+      valign:center;
+    }
+    .tblValue{
+      align:left;
+      valign:center;
+    }
+    table td{
+      vertical-align:center;
+    }
+    .innerTabs a {
+      text-decoration: underline;
+      margin-right: 10px;
+      font-size: 85%;
+    }
+    </style>
+    
+  <script>
+      jQuery(function() { 
+        jQuery("#tabs").tabs();
+        jQuery("#tabs").removeClass('ui-corner-all');
+        jQuery("#tabs").addClass('tabs ui-tabs ui-widget ui-widget-content ui-corner-top');
+        jQuery(".innerTabs").addClass('ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header');
+        jQuery(".jBtn").addClass('ui-state-default ui-corner-all ui-state-active');
+        jQuery(".subjectContainer").addClass('ui-tabs-panel ui-widget-content ui-corner-bottom');
+        jQuery(".newMsgSubject").addClass('ui-widget-header');
+      });
+  </script>
+    
+    <apex:pageMessages id="errors" />
+    <!-- <apex:pageMessage severity="warning" /> -->
+    
+    <apex:form id="messageCenter" >
+    
+     <h1 style="color:#6AACD8;font-size:1.1em">Reply</h1><br/><br/>
+      <apex:outputPanel id="reply" layout="block">
+            <div id="tabs" class="messageTabs" style="border-bottom:1px solid #6699cc; padding-bottom:1px;" > 
+               <div class="innerTabs" >
+                    <apex:commandButton value="{!$Label.MessageSendBtn}" action="{!saveReply}" />
+                   <apex:commandLink value="Back to Inbox" 
+                            action="{!cancelBtn}" 
+                            immediate="true" 
+                            id="newMsgCancelBtn"/>
+                </div>
+            </div>
+           
+           <div class="subjectContainer" style="border-top:1px solid #6699cc;" >  
+        <div class="newMsgSubject" > 
+          <table width="100%">
+            <tr>
+              <td style="width:8%;" align="right" valign="center"><apex:outputText value="{!$ObjectType.Message__c.fields.To__c.label}: " /></td>
+                <td sytle="width:92%;" valign="center"><apex:outputText value="{!toName}" id="replyTo" /></td>
+            </tr>
+            <tr valign="center">
+              <td style="width:8%;" align="right" valign="center"><apex:outputText value="{!$ObjectType.Message__c.fields.Name.label}: " /></td>
+                        <td sytle="width:92%;" valign="center"><apex:outputField value="{!newMessage.Name}" id="newSubject" styleClass="fields" style="padding:5px;"/></td>
+                    </tr>
+                    <tr>
+                      <td style="width:8%;" align="right" valign="center"><apex:outputText value="File: "/></td>
+                      <td sytle="width:92%;" valign="center"><apex:inputFile id="attach" 
+                                value="{!newAttachment.Body}" 
+                                filename="{!newAttachment.Name}" 
+                                fileSize="{!newAttachment.bodyLength}"
+                                style="margin:5px 0px 4px 0px;" /></td>
+                  </tr>
+               </table>
+           </div>
+           <div id="newBody" class="bodyContainer">   
+            <apex:inputField value="{!newMessage.Reply_Rich_Text__c}" styleClass="fields" id="replyReply" /><br/>
+            <apex:outputField value="{!newMessage.Body_Rich_Text__c}" id="newBodyname" styleClass="fields" style="padding:5px;" />
+           </div>
+                
+             </div>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>
