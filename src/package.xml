@@ -44,7 +44,6 @@
     <types>
         <members>Incident__c</members>
         <members>Knowledge_Base__c</members>
-        <members>My_Messages</members>
         <members>Patients</members>
         <members>Pipeline</members>
         <members>Procedure_Catalog__c</members>

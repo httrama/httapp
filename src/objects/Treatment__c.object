@@ -1025,7 +1025,7 @@
             <picklistValues>
                 <fullName>New</fullName>
                 <controllingFieldValues>(1) Inquiry</controllingFieldValues>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Responding</fullName>

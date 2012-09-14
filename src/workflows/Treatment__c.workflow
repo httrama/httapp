@@ -1,5 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Fill_out_MQ</fullName>
+        <description>Fill out MQ</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Patient_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Nuehealth_PRM/Thank_You_MQ</template>
+    </alerts>
+    <alerts>
+        <fullName>Thank_You_New_Treatment</fullName>
+        <description>Thank You - New Treatment</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Patient_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Nuehealth_PRM/Thank_You_New_Treatment</template>
+    </alerts>
+    <rules>
+        <fullName>MQ Stage</fullName>
+        <actions>
+            <name>Fill_out_MQ</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Treatment__c.Stage__c</field>
+            <operation>equals</operation>
+            <value>Medical Information</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>New Treatment</fullName>
+        <actions>
+            <name>Thank_You_New_Treatment</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Treatment__c.Stage__c</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </criteriaItems>
+        <description>Workflow rule to fire when a new treatment is created</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
     <rules>
         <fullName>Travel Itinerary Stage</fullName>
         <actions>
