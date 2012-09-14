@@ -1,0 +1,3 @@
+Hi {!Patient__c.Name}:
+
+Thank you for your resent inquiry for, {!Treatment__c.Procedure__c}

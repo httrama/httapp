@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Used to ask the patient to fill out the MQ</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Thank You MQ</name>
+    <style>none</style>
+    <subject>Please fill out your MQ</subject>
+    <type>text</type>
+</EmailTemplate>
