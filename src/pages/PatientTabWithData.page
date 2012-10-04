@@ -1,0 +1,769 @@
+<apex:page standardController="Patient__c" extensions="PatientExtension" >
+<apex:form >
+<apex:includeScript value="{!$Resource.jQuery}" />
+<apex:includeScript value="{!$Resource.jQueryTwisty}" /> 
+<apex:includeScript value="{!$Resource.sfscript}" /> 
+<apex:stylesheet value="{!$Resource.sfstyles}"/>
+
+<div class="wrapper">
+    <div class="col3">
+        <div class="vfButtonBarDark">
+            <div>
+                <span class="vfButtonBarDarkheader">Patient Stages</span>
+            </div>
+        </div>
+        <div class="sidebardetails">
+                <div class="label">Phase:</div>
+                <div class="item">{!treatment.Phase__c}</div>
+                <div class="label">Stage:</div>
+                <div class="item">{!treatment.Stage__c}</div> 
+                <div class="label">Substage:</div>
+                <div class="item">{!treatment.Sub_Stage__c}</div>
+        </div><br /><br />
+        
+
+        <div class="vfButtonBarDark">
+            <div>
+                <span class="vfButtonBarDarkheader">Tasks</span> 
+                
+                <apex:selectList value="{!selectedTaskOption}" size="1" id="sidebardropdown" styleClass="sidebardropdown" onChange="onChangeCC(this.options[this.selectedIndex].value);">
+                    <apex:selectOptions value="{!taskOptions}" />
+                    <apex:actionfunction action="{!searchTask}" name="onChangeCC" reRender="taskResult"/>
+               </apex:selectList>
+                <!--<select name="dropdown" size="1" >
+                    <option value="allopen">All Open</option>
+                    <option value="allclosed">All Closed</option>
+                    <option value="myopen" selected="selected">My Open</option>
+                    <option value="myclosed">My Closed</option>
+                 </select>-->
+            </div>
+        </div>
+        <apex:outputPanel id="taskResult">        
+        <div class="sidebardetails">
+           <apex:repeat value="{!tasks}" var="t">        
+            <div class="item"><a href="#">{!t.Subject}</a> ({!t.Status})</div>
+            <div class="optionindent">      
+                <div class="label">Owner:</div>
+                <div class="itemsmall"><a href="#">{!t.Owner.Name}</a></div> 
+                <div class="label">Due:</div>
+                <div class="itemsmall"><a href="#">{!t.ActivityDate}</a></div>
+            </div>
+            </apex:repeat>
+            <div style="clear:both"></div>
+        </div>
+        </apex:outputPanel>
+        <br /><br />
+        
+        <div class="vfButtonBarDark">
+            <div>
+                <span class="vfButtonBarDarkheader">Messaging</span>
+            </div>
+        </div>  
+        <div class="sidebardetails">
+            <apex:repeat value="{!messages}" var="msg">
+                <div class="labelnextrow">{!msg.Name}:</div>
+                <div class="item"><a href="#">This will be the summary of the message</a></div>
+            </apex:repeat>
+        </div><br /><br />  
+        
+        <div class="vfButtonBarDark">
+            <div>
+                <span class="vfButtonBarDarkheader">Care Team Members</span>
+            </div>
+        </div>  
+        <div class="sidebardetails">
+            <div class="ctmwrap">
+                <div class="ctmimage">
+                <apex:image id="avatar1" value="{!$Resource.avatar}" width="45" height="45" /></div>
+                <div class="label">John Smith:</div>
+                <div class="item"><a href="#">Assign Task</a></div>
+            </div>
+            
+            <div class="ctmwrap">
+                <div class="ctmimage"><apex:image id="avatar2" value="{!$Resource.avatar}" width="45" height="45" /></div>
+                <div class="label">Sam Jones:</div>
+                <div class="item"><a href="#">Assign Task</a></div>
+            </div>
+            
+            <div class="ctmwrap">
+                <div class="ctmimage"><apex:image id="avatar3" value="{!$Resource.avatar}" width="45" height="45" /></div>
+                <div class="label">Sue Williams:</div>
+                <div class="item"><a href="#">Assign Task</a></div>
+            </div>  
+        </div><br /><br />      
+        
+    </div>
+    <div class="col2">
+        <div class="twisty open">   
+            <div class="orangeheader">
+                <span class="orangeheadertitle"><a href="/{!patient.id}" target="_blank" ></a>{!patient.Name}</span>
+                <span class="treatmentwrapper">
+                    <span class="treatmenttitle">1 of 4 Treatments</span>
+                    <span class="treatmentboxeswrapper">
+                        <span class="treatmentboxon"> </span>
+                        <span class="treatmentbox"> </span>
+                        <span class="treatmentbox"> </span>
+                        <span class="treatmentbox"> </span>
+                    </span>
+                    <span class="treatmenttitle">{!phaseCount } of 4 Phases</span>
+                    <span class="treatmentboxeswrapper">
+                        <span class="treatmentboxon"> </span>
+                        <span class="treatmentbox"> </span>
+                        <span class="treatmentbox"> </span>
+                        <span class="treatmentbox"> </span>         
+                    </span>
+                </span>
+            </div><br />
+            <div class="fieldwrapper">
+                <div class="fieldwrap"><div class="label">Suffix: </div> 
+                <div class="item">{!patient.Salutation__c}</div></div>
+                <div class="fieldwrap"><div class="label">First Name:</div> 
+                    <div class="item">
+                        <a href="/{!patient.id}" target="_blank" >{!firstName}  </a>
+                    </div>
+                </div>
+                <div class="fieldwrap"><div class="label">Last Name:</div> 
+                <div class="item">{!lastName}</div></div>
+                
+                <div class="fieldwrap">
+                    <div class="label">Email:</div> 
+                    <div class="item">{!patient.Email__c}</div>
+                </div>
+                
+                <div class="fieldwrap">
+                    <div class="label">Primary Phone:</div> 
+                    <div class="item">{!patient.Phone__c}</div>
+                </div>
+                
+                <div class="fieldwrap">
+                    <div class="label">Alternate Phone:</div> 
+                    <div class="item">{!patient.Mobile__c}</div>
+                </div>
+                
+                <div class="fieldwrap">
+                    <div class="label">Street:</div> 
+                    <div class="item">{!patient.Street__c}</div>
+                </div>      
+                              
+                <div class="fieldwrap">
+                    <div class="label">City:</div> 
+                    <div class="item">{!patient.City__c}</div>
+                </div>
+                
+                <div class="fieldwrap">
+                    <div class="label">State/Province:</div> 
+                    <div class="item">{!patient.State__c}</div>
+                </div>
+                
+                <div class="fieldwrap">
+                    <div class="label">Zip/Postal Code:</div> 
+                    <div class="item">{!patient.Postal_Code__c}</div>
+                </div>
+                
+                <div class="fieldwrap">
+                    <div class="label">Country:</div> 
+                    <div class="item">{!patient.Country__c}</div>
+                </div>
+                
+                <div class="fieldwrap">
+                    <div class="label">Key Contact:</div> 
+                    <div class="item">(insert custom object)</div>
+                </div>
+                
+                <div class="fieldwrap">
+                    <div class="label">Preferred Language:</div> 
+                    <div class="item">{!patient.Preferred_Language__c}</div>
+                </div>
+                
+                <div class="fieldwrap"><div class="label">Last Communication:</div> <div class="item">(insert custom object)</div></div>
+                <div class="fieldwrap">
+                    <div class="label">Owner:</div> 
+                    <div class="item">{!patient.Owner.Name}</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="twisty open">       
+        <div class="orangeheader">
+            <span class="orangeheadertitle">Treatment</span>
+            <span class="orangeheaderoption"><a href="#" style="color:#fff">New Treatment</a></span>
+        </div><br />
+        
+                
+        <div class="treatmentfieldwrapper">
+            <div class="treatmentform">
+                <div class="fieldwrapper">
+                    <div class="fieldwrap">
+                        <div class="label">Treatment Event #</div> 
+                        <div class="item">
+                            <a href="/{!treatment.id}" target="_blank" >{!treatment.Name}</a>
+                        </div>
+                    </div>
+                    
+                    <div class="fieldwrap">
+                        <div class="label">Next Follow Up:</div> 
+                        <div class="item">(insert custom object)</div>
+                    </div>
+                    
+                    <div class="fieldwrapfull">
+                        <div class="labellong">Patient Not Committed Reason:</div> 
+                        <div class="item">(insert custom object)</div>
+                    </div>
+                </div>
+            </div><div class="fieldheading">Staging Process</div>
+            <div class="treatmentform">
+                <div class="fieldwrapper">                  
+                    <div class="fieldwrap"><div class="label">Phase</div> <div class="item">{!treatment.Phase__c}</div></div>
+                    <div class="fieldwrap"><div class="label">Stage</div> <div class="item">{!treatment.Stage__c}</div></div>
+                    <div class="fieldwrapfull"><div class="label">Sub-Stage</div> <div class="item">{!treatment.Sub_Stage__c}</div></div>
+                </div>
+            </div><div class="fieldheading">Procedure Information</div>
+            <div class="treatmentform">
+                <div class="fieldwrapper">
+                    <div class="fieldwrap"><div class="label">Primary Provider</div> <div class="item">{!treatment.Primary_Provider__c}</div></div>
+                    <div class="fieldwrap"><div class="label">Procedure Date</div> <div class="item"><apex:outputField value="{!treatment.Procedure_Date__c}"/></div></div>
+                    <div class="fieldwrap"><div class="label">Procedure Category</div> <div class="item">{!treatment.Procedure_Category__c}</div></div>
+                    <div class="fieldwrapfull"><div class="labellong">Procedure Sub-Category</div> <div class="item">(insert custom object)</div></div>
+                </div>
+            </div>
+        </div>
+            <div class="mainNav">
+                <div class="navitemfirst">
+                    <apex:commandLink id="nav1" onmousemove="document.getElementById('arrow1').style.color = '#EA6C1A'" onmouseout="document.getElementById('arrow1').style.color = '#CCCCCC'" action="{!displayInquiry}" reRender="resultPanel">    
+                        <h3>Inquiry </h3>
+                    </apex:commandLink>
+                    <div class="lucida" id="arrow1">&#187;</div><br /><br />
+                </div>
+                <div class="navitem">
+                    <apex:commandLink id="nav2" onmousemove="document.getElementById('arrow2').style.color = '#EA6C1A'" onmouseout="document.getElementById('arrow2').style.color = '#CCCCCC'" action="{!displayInteraction}" reRender="resultPanel">
+                        <h3>Interaction </h3>
+                    </apex:commandLink>
+                    <div class="lucida" id="arrow2">&#187;</div><br /><br />
+                </div>
+                <div class="navitem">
+                    <apex:commandLink id="nav3" onmousemove="document.getElementById('arrow3').style.color = '#EA6C1A'" onmouseout="document.getElementById('arrow3').style.color = '#CCCCCC'" action="{!displayTravel}" reRender="resultPanel">
+                        <h3>Travel </h3>
+                    </apex:commandLink>
+                    <div class="lucida" id="arrow3">&#187;</div><br /><br />
+                </div>
+                <div class="navitem">
+                    <apex:commandLink id="nav4" onmousemove="document.getElementById('arrow4').style.color = '#EA6C1A'" onmouseout="document.getElementById('arrow4').style.color = '#CCCCCC'" action="{!displayPostOp}" reRender="resultPanel">
+                        <h3>Post-Op </h3>
+                     </apex:commandLink>
+                    <div class="lucida" id="arrow4">&#187;</div><br /><br />
+                </div>
+            </div>                      
+        </div>  
+    </div>
+</div>
+
+<apex:outputPanel id="resultPanel">
+    <apex:outputPanel rendered="{!inquiryFlag}">
+        <div class="twisty open">   
+            <div class="orangeheader">
+                <span class="orangeheadertitle">Inquiry</span>
+                <span class="orangeheaderoption"><a href="#" style="color:#fff">New Inquiry</a></span>
+            </div><br />
+            <div class="treatmentfieldwrapper">
+                <div class="treatmentform">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Treatment Event #</div> <div class="item"><a href="/{!treatment.id}" target="_blank" >{!treatment.Name}</a></div></div>
+                    </div>
+                </div>
+                <div class="fieldheading">Inquiry Sourcing</div>
+                <div class="treatmentform">
+                    <div class="fieldwrapper">                  
+                        <div class="fieldwrap"><div class="label">Inquiry Source</div> <div class="item">{!treatment.Inquiry_Source__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Primary Campaign Source</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Related Campaign?</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Advocate Name</div> <div class="item">{!patient.Advocate_Name__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Advocate Phone</div> <div class="item">{!patient.Advocate_Phone__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Advocate Email</div> <div class="item">{!patient.Advocate_Email__c}</div></div>
+                    </div>
+                </div>
+                <div class="fieldheading">Inquiry Information</div>
+                <div class="treatmentform">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Inquiry Quality</div> <div class="item">{!treatment.Inquiry_Quality__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Inquiry Owner</div> <div class="item">{!treatment.createdBy.Name}</div></div>
+                        <div class="fieldwrap"><div class="label">Preferred Form of Contact</div> <div class="item">{!treatment.Preferred_Form_of_Contact__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Time Zone</div> <div class="item">{!patient.Time_Zone__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Best Time to Contact</div> <div class="item">{!treatment.Best_Time_to_Contact__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Preferred Language</div> <div class="item">{!patient.Preferred_Language__c}</div></div>                        
+                    </div>
+                </div>
+                <div class="fieldheading">Scheduling Information</div>
+                <div class="treatmentform">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Decision Timing</div> <div class="item">{!treatment.Decision_Timeframe__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Preferred Destination</div> <div class="item">{!treatment.Preferred_Destination__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Financing Required?</div> <div class="item">{!treatment.Financing_Reguired__c}</div></div> 
+                        <div class="fieldwrap"><div class="label">Preferred Travel Date: Depart</div> <div class="item"><apex:outputField value="{!treatment.Preferred_Travel_Date_From__c}"/></div></div>
+                        <div class="fieldwrap"><div class="label">Preferred Travel Date: Return</div> <div class="item"><apex:outputField value="{!treatment.Preferred_Travel_Date_To__c}"/></div></div>
+                    </div>
+                </div>
+                <div class="fieldheading">Procedure Date</div>
+                <div class="treatmentform">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Description</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Assign using active assignment rule</div> <div class="item">(insert custom object)</div></div>            
+                    </div>
+                </div>              
+                <div class="fieldheading">Payment Information</div>
+                <div class="treatmentform">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Payment Type</div> <div class="item">{!treatment.Payment_Type__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Deposit Required</div> <div class="item">{!treatment.Deposit_Required__c}</div></div>   
+                    </div>
+                </div>      
+                <div class="fieldheading">Next Steps</div>
+                <div class="treatmentform">
+                    <div class="fieldwrapper">                      
+                        <div class="fieldwrap"><div class="label">Created By</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Next Step</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Last Modified</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Phone</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Email</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Alternate Email</div> <div class="item">(insert custom object)</div></div>
+                    </div>
+                </div>                  
+                <div class="fieldheading">Demographics</div>
+                <div class="treatmentform">
+                    <div class="fieldwrapper">
+                       <div class="fieldwrap"><div class="label">Age</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Male or Female</div> <div class="item">{!patient.Gender__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Nationality</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Country Born</div> <div class="item">{!patient.Country__c}</div></div>
+                    </div>
+                </div>              
+            </div>
+        </div>
+    </apex:outputPanel>
+    
+    <apex:outputPanel rendered="{!interactionFlag}">
+        <div class="twisty open">   
+            <div class="orangeheader">
+                <span class="orangeheadertitle">Interaction</span>
+                <span class="orangeheaderoption"><a href="#" style="color:#fff">New Interaction</a></span>
+            </div><br />
+            <div class="treatmentfieldwrapper">
+                <div class="treatmentform">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Treatment Event #</div> <div class="item"><a href="/{!treatment.id}" target="_blank" >{!treatment.Name}</a></div></div>
+                    </div>
+                </div>
+                <div class="fieldheading">Interaction Information</div>
+                <div class="treatmentform">
+                    <div class="fieldwrapper">                      
+                        <div class="fieldwrap"><div class="label">Probability</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Request Summary</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Hospital Destination</div> <div class="item">{!treatment.Hospital_Destination__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Procedure Amount</div> <div class="item">{!treatment.Amount__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Close Date</div> <div class="item"><apex:outputField value="{!treatment.Close_Date__c }"/></div></div>
+                        <div class="fieldwrap"><div class="label">Case Manager's Feel</div> <div class="item">{!treatment.Case_Manager_s_Feel__c}</div></div>
+                    </div>
+                </div>
+                <div class="fieldheading">Scheduling Information</div>
+                <div class="treatmentform">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Decision Timing</div> <div class="item">{!treatment.Decision_Timeframe__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Preferred Destination</div> <div class="item">{!treatment.Preferred_Destination__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Financing Required?</div> <div class="item">{!treatment.Financing_Reguired__c}</div></div> 
+                        <div class="fieldwrap"><div class="label">Preferred Travel Date: Depart</div> <div class="item"><apex:outputField value="{!treatment.Preferred_Travel_Date_From__c}"/></div></div>
+                        <div class="fieldwrap"><div class="label">Preferred Travel Date: Return</div> <div class="item"><apex:outputField value="{!treatment.Preferred_Travel_Date_To__c}"/></div></div>
+                    </div>
+                </div>
+                <div class="fieldheading">Procedure Date</div>
+                <div class="treatmentform">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Description</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Assign using active assignment rule</div> <div class="item">(insert custom object)</div></div>            
+                    </div>
+                </div>              
+                <div class="fieldheading">Payment Information</div>
+                <div class="treatmentform">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Payment Type</div> <div class="item">{!treatment.Payment_Type__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Deposit Required</div> <div class="item">{!treatment.Deposit_Required__c}</div></div>   
+                    </div>
+                </div>                      
+            </div>
+        </div>
+        <div class="tabs">
+            <a href="javascript:void(0);" id="tab1" class="tab" style="color:#EA6C1A">Incident</a>
+            <a href="javascript:void(0);" id="tab2" class="tab">Medical Profile and Record</a>
+            <a href="javascript:void(0);" id="tab3" class="tab">Quotes</a>
+            <a href="javascript:void(0);" id="tab4" class="tab">Payments</a>
+        </div>
+        <div id="tab1box" class="tabbox" style="display:block">
+            <div class="treatmentfieldwrapper">
+                <div class="fieldheading">Incident Detail</div>
+                <div class="treatmentformwhite">
+                    <div class="fieldwrapper">          
+                        <div class="fieldwrap"><div class="label">Incident Number</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Contact Name (lookup)</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Account Name</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Type</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Category</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Subject</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Date Time Opened</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Created By</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Incident Owner</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Status</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Due Date</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Contact Phone</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Contact Email</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Date Time Closed</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Last Modified By  </div> <div class="item">(insert custom object)</div></div>
+                    </div>
+                </div>
+                <div class="fieldheading">Open Activities</div>
+                <div class="treatmentformwhite">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label"></div> <div class="item"></div></div>
+                    </div>
+                </div>
+                <div class="fieldheading">Activity History</div>
+                <div class="treatmentformwhite">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label"></div> <div class="item"></div></div>
+                    </div>
+                </div>
+                <div class="fieldheading">Attachments</div>
+                <div class="treatmentformwhite">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label"></div> <div class="item"></div></div>
+                    </div>
+                </div>
+                <div class="fieldheading">Incident History</div>
+                <div class="treatmentformwhite">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label"></div> <div class="item"></div></div>
+                    </div>
+                </div>                                                      
+            </div>      
+        </div>  
+        <div id="tab2box" class="tabbox">
+            <div class="treatmentfieldwrapper">
+                <div class="fieldheading">Features</div>
+                <div class="treatmentformwhite">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrapfull"><div class="labellong">Example of medical profile survey form</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrapfull"><div class="labellong">MphRx - viewer and integration - (PW = 123456)</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrapfull"><div class="labellong">Sharing feature to be able to send or invite collaborators to view the medical information</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrapfull"><div class="labellong">Send a reminder</div> <div class="item">(insert custom object)</div></div>                        
+                    </div>
+                </div>                                              
+            </div>              
+        </div>      
+        <div id="tab3box" class="tabbox">
+            <div class="treatmentfieldwrapper">
+                <div class="treatmentformwhite">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Create New</div> <div class="item">(Insert Button)</div></div>
+                    </div>
+                </div>
+                <div class="fieldheading">Quote Information</div>
+                <div class="treatmentformwhite">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Quote Name</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Opportunity Name</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Expiration Date</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Syncing</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Status</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Description</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Hospital Location</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Doctor Name</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Procedure Date</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Arrival</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Departure</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Number of Hospital Nights</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Hotel Nights Included</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Hotel Nights Needed</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Ground Transportation Included</div> <div class="item">(insert custom object)</div></div>                 
+                    </div>
+                </div>
+                <div class="fieldheading">Totals</div>
+                <div class="treatmentformwhite">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Sub-total</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Discount</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Total Price</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Tax</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Grand Total</div> <div class="item">(insert custom object)</div></div>                    
+                    </div>
+                </div>
+                <div class="fieldheading">Address Information</div>
+                <div class="treatmentformwhite">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Bill to Name</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Bill to Street</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Bill to City</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Bill to State-Province</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Bill to Zip-Postal Code</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Bill to Country</div> <div class="item">(insert custom object)</div></div>                    
+                    </div>
+                </div>                                                      
+            </div>
+        </div>      
+        <div id="tab4box" class="tabbox">
+            <div class="treatmentfieldwrapper">
+                <div class="fieldheading">Payment Tracking</div>
+                <div class="treatmentformwhite">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Deposit Total</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Deposit Required</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Date Closed</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Payment Status</div> <div class="item">(insert custom object)</div></div> 
+                        <div class="fieldwrap"><div class="label">Closed Value</div> <div class="item">(insert custom object)</div></div>   
+                        <div class="fieldwrap"><div class="label">Accounting Notes</div> <div class="item">(insert custom object)</div></div>       
+                        <div class="fieldwrap"><div class="label">Assigned</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Date Completed</div> <div class="item">(insert custom object)</div></div>                         
+                    </div>
+                </div>
+                <div class="fieldheading">Transaction Tab</div>
+                <div class="treatmentformwhite">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Name</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Transaction Type</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Payment Code</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Date Paid</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Due Date</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Reference/Check #</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Payor</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Payee</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Invoice Amount</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Payment Amount</div> <div class="item">(insert custom object)</div></div>
+                    </div>
+                </div>
+                <div class="fieldheading">Take Payment</div>
+                <div class="treatmentformwhite">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Name on Card</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Street Address</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Zip Code</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Card Number</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Card Type</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Expiration Date Month</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Expiration Date Year</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Amount</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">3-digit Security Code</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Authorize</div> <div class="item">(insert custom object)</div></div>
+                    </div>
+                </div>
+                <div class="fieldheading">Insurance</div>
+                <div class="treatmentformwhite">
+                    <div class="fieldsubheading">Policy Info</div>
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Verification Date</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Clinic #</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Name of Insurance</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Claim Address</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Verification phone number</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Fax number medical reviews</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Insurance Contact</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Policy # / ID #</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Group #</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Effective Date</div> <div class="item">(insert custom object)</div></div>
+                    </div>
+                    <div class="fieldsubheading">Coverage and Co-Pay</div>
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Dependent Coverage</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Deductible</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Co-pay</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Benefit Percentage</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Patient's Out of Pocket or Stop-Loss $</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Out of Pocket Met?</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Pre-Existing Clause Apply?</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Routine Visit?</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Lifetime Max $</div> <div class="item">(insert custom object)</div></div>         
+                    </div>      
+                    <div class="fieldsubheading">Cert and Auth</div>
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Pre-Cert Required?</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Phone # for Pre-Auth</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Authorization #</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Inpatient</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Outpatient</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Days (Inpatient)</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Insurance Contact Person</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Insurance Comments</div> <div class="item">(insert custom object)</div></div>             
+                    </div>                              
+                </div>                                                      
+            </div>
+        </div>  
+    </apex:outputPanel>
+    
+     <apex:outputPanel rendered="{!travelFlag}">
+        <div class="twisty open">   
+            <div class="orangeheader">
+                <span class="orangeheadertitle">Travel</span>
+                <span class="orangeheaderoption"><a href="#" style="color:#fff">New Travel</a></span>
+            </div><br />
+            <div class="treatmentfieldwrapper">
+                <div class="treatmentform">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Treatment Event #</div> <div class="item">(insert custom object)</div></div>
+                    </div>
+                </div>
+                <div class="fieldheading">Traveler Information</div>
+                <div class="treatmentform">
+                    <div class="fieldwrapper">                  
+                        <div class="fieldwrap"><div class="label">Patient Traveler Name</div> <div class="item">{!patient.Name}</div></div>
+                        <div class="fieldwrap"><div class="label">Close Date</div> <div class="item">{!treatment.Close_Date__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Booking Status</div> <div class="item">{!travel.Booking_Status__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Travel Start</div> <div class="item">{!travel.Travel_Start__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Travel End</div> <div class="item">{!travel.Travel_End__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Procedure Date</div> <div class="item">{!travel.Procedure_Date__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Number of Hospital Nights</div> <div class="item">{!travel.Number_of_Hospital_Nights__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Pre-op</div> <div class="item">{!travel.Pre_Op__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Pre-op Instructions</div> <div class="item">{!travel.Pre_Op_Instructions__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Itinerary Summary</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Owner</div> <div class="item">{!travel.Owner.Name}</div></div>
+                        <div class="fieldwrap"><div class="label">Opportunity</div> <div class="item">{!travel.Opportunity__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Date of Birth</div> <div class="item">{!travel.Date_Of_Birth__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Companion</div> <div class="item">{!travel.Companion__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Visa Status</div> <div class="item">{!travel.Visa_Status__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Passport Status</div> <div class="item">{!travel.Passport_Status__c}</div></div>
+                    </div>
+                </div>
+                <div class="fieldheading">Additional Services</div>
+                <div class="treatmentform">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Special Passport/Visa</div> <div class="item">{!travel.Special_Passport_Visa__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Airfare Coordination Needed</div> <div class="item">{!travel.Airfare_Coordination_Needed__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Travel Alert</div> <div class="item">{!travel.Travel_Alert__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Hotel Coordination Needed</div> <div class="item">{!travel.Hotel_Coordination_Needed__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Extra Local Concierge</div> <div class="item">{!travel.Extra_Local_Concier__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Ground Transportation Needed</div> <div class="item">{!travel.Ground_Transportation_Needed__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Wheelchair Bound</div> <div class="item">{!travel.Wheel_Chair_Bound__c}</div></div>   
+                    </div>
+                </div>
+                <div class="fieldheading">Transportation</div>
+                <div class="treatmentform">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Flying</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Arrival Airport Code</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Arrival Airport (Other)</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Arrival Airline</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Arrival Flight No</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Departure Airport Code</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Departure Airport</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Departure Airport (Other)</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Departure Airline</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Departure Flight No</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Notes</div> <div class="item">(insert custom object)</div></div>
+                    </div>
+                </div>
+                <div class="fieldheading">Hotel</div>
+                <div class="treatmentform">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Hotel Nights Included</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Hotel Nights Needed</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Special Hotel Needs</div> <div class="item">(insert custom object)</div></div>
+                    </div>
+                </div>              
+                <div class="fieldheading">Complications</div>
+                <div class="treatmentform">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Treatment as Quoted</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Total Added Cost</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Insurance Approval</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Additions - Comments</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Event Diagnosis</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Incident Toolbar</div> <div class="item">(insert custom object)</div></div>               
+                    </div>
+                </div>                  
+            </div>
+        </div>
+        <div class="tabs">
+            <a href="javascript:void(0);" id="tab1" class="tab" style="color:#EA6C1A">Scheduling</a>
+            <a href="javascript:void(0);" id="tab2" class="tab">Travel Itinerary</a>
+        </div>
+        <div id="tab1box" class="tabbox" style="display:block">
+            <div class="treatmentfieldwrapper">
+                <div class="fieldheading">Features</div>
+                <div class="treatmentformwhite">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrapfull"><div class="labellong">This section will be able to create new calendar events, ability to view hospital /provider calendars</div> <div class="item"></div></div>
+                        <div class="fieldwrapfull"><div class="labellong">Being able to send calendar invites to the provider&amp;s calendar (outlook, gmail) </div> <div class="item"></div></div>
+                        <div class="fieldwrapfull"><div class="labellong">View the provider calendar</div> <div class="item"></div></div>                   
+                    </div>
+                </div>                                              
+            </div>  
+        </div>  
+        <div id="tab2box" class="tabbox">
+            <div class="treatmentfieldwrapper">
+                <div class="fieldheading">Itinerary Details</div>
+                <div class="treatmentformwhite">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Patient Name</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Companion Name</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Patient Contact Number</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Dates of Travel</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Doctor</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Hospital Destination</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Procedure</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Procedure Cost</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Payments Made</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Balance Due</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Important Contacts</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Onsite Coordinator</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Phone</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Email</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Patient Care Coordinator</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Phone</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Email</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Travel Concierge</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Phone</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Email</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Hotel and Transportation Information</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Flight Information</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Hotel information</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Name</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Address</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Check in</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Check out</div> <div class="item">(insert custom object)</div></div>      
+                    </div>
+                </div>                                              
+            </div>      
+        </div>
+    </apex:outputPanel>
+    
+    <apex:outputPanel rendered="{!postopFlag}">
+        <div class="twisty open">   
+            <div class="orangeheader">
+                <span class="orangeheadertitle">Post-Op</span>
+                <span class="orangeheaderoption"><a href="#" style="color:#fff">New Post-Op</a></span>
+            </div><br />
+<div class="treatmentfieldwrapper">
+                <div class="treatmentform">
+                    <div class="fieldwrapper">
+                        <div class="fieldwrap"><div class="label">Treatment Event #</div> <div class="item">(insert custom object)</div></div>
+                    </div>
+                </div>
+                <div class="fieldheading">Post Treatment Information</div>
+                <div class="treatmentform">
+                    <div class="fieldwrapper">                  
+                        <div class="fieldwrap"><div class="label">Treatment Date (Completed)</div> <div class="item">{!treatment.Close_Date__c}</div></div>
+                        <div class="fieldwrap"><div class="label">On-Site Recovery Period</div> <div class="item">{!treatment.On_Site_Recovery_Period__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Post-Op Follow Up Program</div> <div class="item">{!treatment.On_Site_Recovery_Period__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Financial Reconciliation</div> <div class="item">{!treatment.Financial_Reconciliation__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Additional Amount</div> <div class="item">{!treatment.Additional_Amount__c}</div></div>
+                        <div class="fieldwrap"><div class="label">Accounting Line Items</div> <div class="item">(insert custom object)</div></div>
+                        <div class="fieldwrap"><div class="label">Treatment Summary</div> <div class="item">(insert custom object)</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </apex:outputPanel>
+  
+</apex:outputPanel>
+
+<script type="text/javascript">
+    $(document).ready(function() {  
+        $('div.twisty').twisty();  // Find all DIV tags with class "twisty" and then apply Twisty plugin.
+    });   
+</script>
+</apex:form>
+</apex:page>
